@@ -13,7 +13,8 @@ class Appointment extends Model
         'date',
         'time',
         'reason',
-        'status'
+        'status',
+        'lab',
     ];
 }
 

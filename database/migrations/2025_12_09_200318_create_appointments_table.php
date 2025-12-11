@@ -19,6 +19,7 @@ return new class extends Migration
         $table->time('time');
         $table->string('reason')->nullable();
         $table->string('status')->default('pendiente');
+        $table->string('lab')->default('201');
         $table->timestamps();
 });
 

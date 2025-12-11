@@ -15,14 +15,16 @@ class AppointmentController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'patient_name' => 'required|string|max:255',
-            'doctor_name'  => 'required|string|max:255',
-            'date'         => 'required|date',
-            'time'         => 'required|string',
-            'reason'       => 'required|string',
-            'status'       => 'required|in:pendiente,realizada,cancelada',
-        ]);
+       $data = $request->validate([
+    'patient_name' => 'required|string|max:255',
+    'doctor_name'  => 'required|string|max:255',
+    'date'         => 'required|date',
+    'time'         => 'required|string',
+    'reason'       => 'required|string',
+    'status'       => 'required|in:pendiente,realizada,cancelada',
+    'lab'          => 'required|in:201,202,203',
+]);
+
 
         $appointment = Appointment::create($data);
 
@@ -43,6 +45,7 @@ class AppointmentController extends Controller
             'time'         => 'sometimes|required|string',
             'reason'       => 'sometimes|required|string',
             'status'       => 'sometimes|required|in:pendiente,realizada,cancelada',
+            'lab'          => 'sometimes|required|in:201,202,203',
         ]);
 
         $appointment->update($data);
